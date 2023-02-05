@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: aapl
+    description: Apple product Price List for different Countries
+    tables:
+      - name: aapl_product_price_list
+    
+models:
+  - name: aapl_india_product_price_list
+    description: Apple product Price List in India
+    columns:
+      - name: pid
+        tests:
+            - unique
+            - not_null:
+                config:
+                  store_failures: true

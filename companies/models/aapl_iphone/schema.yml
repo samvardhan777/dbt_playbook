@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: aapl_location
+    description: A replica of the postgres database used to power the jaffle_shop app.
+    tables:
+      - name: aapl_india_product_price_list
+
+    freshness: # default freshness
+      warn_after: {count: 30, period: minute}
+      error_after: {count: 50, period: minute}
+
+    loaded_at_field: created_at
+
+models:
+  - name: aapl_iphone
+    config:
+      materialized: view
+    columns:
+      - name: pid
+        tests:
+            - unique
+            - not_null:
+                config:
+                  store_failures: true
+      - name: region
+        test: 
+            - accepted_values:
+                values: [Latin America & Caribbean","Europe & Central Asia","South Asia","North America","East Asia & Pacific"]
+                config:
+                  store_failures: true  
+                  severity: warn  
