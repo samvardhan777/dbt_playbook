@@ -1,8 +1,33 @@
-### Using the starter project
+### DBT installation &  Setup
+
+Installation of dbt using pip 
+    
+    pip install dbt-postgres
+
+Now check the version of the dbt 
+
+        dbt --version
+
+
+Start the new dbt Project
+
+        dbt init
+
+-   Enter the name of the Project
+
+-   Enter type Database in our case it is Postgres 
+
+This command will grt you configuration directory of .dbt file
+
+        dbt debug --config-dir
+
+
 
 Try running the following commands:
 - dbt run
 - dbt test
+
+All dbt models in [models](/models)
 
 
 ### Resources:
