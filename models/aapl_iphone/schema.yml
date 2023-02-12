@@ -7,8 +7,8 @@ sources:
       - name: aapl_india_product_price_list
 
     freshness: # default freshness
-      warn_after: {count: 30, period: minute}
-      error_after: {count: 50, period: minute}
+      warn_after: {count: 2, period: minute}
+      error_after: {count: 3, period: minute}
 
     loaded_at_field: created_at
 
@@ -26,7 +26,7 @@ models:
       - name: region
         test: 
             - accepted_values:
-                values: [Latin America & Caribbean","Europe & Central Asia","South Asia","North America","East Asia & Pacific"]
+                values: ["Latin America & Caribbean","Europe & Central Asia","South Asia","North America","East Asia & Pacific"]
                 config:
                   store_failures: true  
                   severity: warn  
